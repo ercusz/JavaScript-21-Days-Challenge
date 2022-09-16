@@ -6,6 +6,7 @@
   }
   
   function onDrop() {
+    console.log(this);
     this.append(draggingElem);
     draggingElem = null;
   }
