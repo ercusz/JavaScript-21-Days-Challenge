@@ -1,4 +1,24 @@
 (() => {
-  // เริ่มเขียนโค้ด
+  onScroll = () => {
+    const sectionElems = Array.from(document.querySelectorAll("section"));
 
+    sectionElems.forEach((sectionElem) => {
+      const imgElem = sectionElem.querySelector("img");
+      const textElem = sectionElem.querySelector(".text");
+
+      const revealPosition = imgElem.offsetTop + imgElem.offsetHeight / 10;
+      const scrollPosition = window.pageYOffset;
+
+      if (scrollPosition >= revealPosition) {
+        textElem.classList.add("reveal");
+      }
+    });
+  };
+
+  // เริ่มเขียนโค้ด
+  run = () => {
+    document.addEventListener("scroll", onScroll);
+  };
+
+  run();
 })();
